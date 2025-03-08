@@ -3,8 +3,6 @@ import requests
 import pandas as pd
 import ta
 import numpy as np
-
-# En tête du fichier
 import os
 os.environ['STREAMLIT_SERVER_PORT'] = '8501'
 os.environ['STREAMLIT_SERVER_ADDRESS'] = '192.168.1.25'
