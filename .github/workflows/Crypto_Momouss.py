@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
-import ta
+from ta import momentum, trend, volatility
 import numpy as np
 import os
 os.environ['STREAMLIT_SERVER_PORT'] = '8501'
