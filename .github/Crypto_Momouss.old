@@ -1,6 +1,10 @@
 import streamlit as st
 import requests
-import pandas as pd
+from ta.momentum import RSIIndicator
+from ta.trend import SMAIndicator, EMAIndicator
+from ta.momentum import RSIIndicator
+from ta.trend import SMAIndicator, EMAIndicator
+from ta.volatility import BollingerBandsimport pandas as pd
 from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, EMAIndicator
 from ta.volatility import BollingerBands
