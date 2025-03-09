@@ -82,11 +82,18 @@ INTERVAL = "1d"
 # FONCTIONS CORE
 # ======================
 @st.cache_data(ttl=3600)
-def fetch_crypto_data(symbol="BTCUSDT"):
-    """
-    Récupère les données historiques depuis l'API Binance.
-    Retourne un DataFrame avec date, open, high, low, close, volume.
-    """
+def fetch_crypto_data(symbol):
+    try:
+        proxies = {
+            "http": "http://user:pass@proxy_ip:port",
+            "https": "http://user:pass@proxy_ip:port"
+        }
+        
+        response = requests.get(
+            url="https://api.binance.com/api/v3/klines",
+            params={'symbol': symbol, 'interval': '1d', 'limit': 300},
+            proxies=proxies,
+            headers={'User-Agent': 'Mozilla/5.0'}
     try:
         url = "https://api.binance.com/api/v3/klines"
         params = {'symbol': symbol, 'interval': INTERVAL, 'limit': 300}
