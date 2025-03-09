@@ -4,8 +4,7 @@ from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, EMAIndicator
 from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, EMAIndicator
-from ta.volatility import BollingerBandsimport pandas as pd
-from ta.momentum import RSIIndicator
+from ta.volatility import BollingerBands
 from ta.trend import SMAIndicator, EMAIndicator
 from ta.volatility import BollingerBands
 import numpy as np
