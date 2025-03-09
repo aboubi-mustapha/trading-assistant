@@ -83,17 +83,22 @@ INTERVAL = "1d"
 # ======================
 @st.cache_data(ttl=3600)
 def fetch_crypto_data(symbol):
+    COINGECKO_ID_MAP = {
+        "BTCUSDT": "bitcoin",
+        "ETHUSDT": "ethereum",
+        # Ajouter les autres mappings
+    }
+    
     try:
-        proxies = {
-            "http": "http://user:pass@proxy_ip:port",
-            "https": "http://user:pass@proxy_ip:port"
-        }
-        
         response = requests.get(
-            url="https://api.binance.com/api/v3/klines",
-            params={'symbol': symbol, 'interval': '1d', 'limit': 300},
-            proxies=proxies,
-            headers={'User-Agent': 'Mozilla/5.0'}
+            f"https://api.coingecko.com/api/v3/coins/{COINGECKO_ID_MAP[symbol]}/market_chart",
+            params={'vs_currency': 'usd', 'days': 300}
+        )
+        # Traitement des données Coingecko
+        prices = response.json()['prices']
+        df = pd.DataFrame(prices, columns=['timestamp', 'price'])
+        df['date'] = pd.to_datetime(df['timestamp'], unit='ms')
+        return df
     try:
         url = "https://api.binance.com/api/v3/klines"
         params = {'symbol': symbol, 'interval': INTERVAL, 'limit': 300}
