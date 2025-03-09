@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-Application de Trading Cryptographique - Version PC
-Auteur : Aboubi Mustapha
-Version : 2.1.0
-"""
 
 import streamlit as st
 import requests
