@@ -105,7 +105,7 @@ def calculate_technical_indicators(df):
     """Calcule les indicateurs techniques"""
     try:
         # Indicateurs de momentum
-        df['rsi'] = momentum.RSIIndicator(df['close'], window=14).rsi()
+        df['rsi'] = RSIIndicator(close=df['close'], window=14).rsi()
         # Moyennes mobiles
         df['ma50'] = ta.trend.sma_indicator(df['close'], window=50)
         df['ma200'] = ta.trend.sma_indicator(df['close'], window=200)
