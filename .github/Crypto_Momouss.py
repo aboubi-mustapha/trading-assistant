@@ -1,7 +1,9 @@
 import streamlit as st
 import requests
 import pandas as pd
-import ta
+from ta.momentum import RSIIndicator
+from ta.trend import SMAIndicator, EMAIndicator
+from ta.volatility import BollingerBands
 import numpy as np
 
 # ======================
