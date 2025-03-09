@@ -1,4 +1,12 @@
+import os
+from dotenv import load_dotenv
 
+load_dotenv()  # Charge les variables depuis .env
+
+PROXY = {
+    "http": os.getenv("PROXY_URL"),
+    "https": os.getenv("PROXY_URL")
+}
 import streamlit as st
 import requests
 import pandas as pd
