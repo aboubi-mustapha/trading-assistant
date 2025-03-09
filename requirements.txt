@@ -4,3 +4,8 @@ pandas==2.1.4
 numpy==1.26.4
 ta==0.11.0
 python-dotenv==1.0.0
+requests[socks]==2.32.3  # Pour le support SOCKS
+streamlit==1.32.2
+pandas==2.2.2
+ta==0.11.0
+python-dotenv==1.0.0
